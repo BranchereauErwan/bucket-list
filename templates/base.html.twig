@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link rel="icon" src="{{ asset('img/favicon.png') }}">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+    <header>
+        <img src="{{ asset('img/logo.png') }}" alt="">
+        <h1>Bucket-List</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ path('main_index')}}">Home</a></li>
+                <li><a>Test</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block body %}{% endblock %}
+    </main>
+    <footer>
+        © {{ 'now' | date('Y') }} Bucket List
+    </footer>
+    </body>
+</html>
